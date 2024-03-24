@@ -1,0 +1,52 @@
+@use "../abstracts/mixin" as *;
+.fade {
+  @include fade("hide");
+}
+.intro {
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.intro_price {
+  @include boxOnlyWidth(100%);
+  position: relative;
+  z-index: 100;
+}
+.intro_soldes {
+  position: relative;
+  @include boxOnlyWidth(100%);
+  margin: 20px auto;
+  z-index: 99;
+  @include flex-center;
+  img {
+    max-width: 80%;
+  }
+  &::before,
+  &::after {
+    position: absolute;
+    top: 50%;
+    width: 5%;
+    height: 100px;
+    z-index: 50;
+    content: "";
+  }
+  &::before {
+    width: 3%;
+    left: 3%;
+    border-left: 2px solid white;
+    border-top: 2px solid white;
+  }
+  &::after {
+    right: 0;
+    border-right: 2px solid white;
+    border-top: 2px solid white;
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
